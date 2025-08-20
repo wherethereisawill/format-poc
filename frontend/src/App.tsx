@@ -93,7 +93,7 @@ function App() {
             <ul className="list-disc pl-6">
               {whatStoodOut.map((item) => (
                 <li key={item.hook} className="mb-2 text-left">
-                  <span className="font-bold">{stripMarkdownBold(item.hook)}:</span> {item.explanation} <span className="font-mono">{item.stat}</span>
+                  <span className="font-bold">{stripMarkdownBold(item.hook)}:</span> {item.explanation}
                   </li>
                 ))}
               </ul>
