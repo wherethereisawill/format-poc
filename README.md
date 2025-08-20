@@ -21,3 +21,5 @@ This README explains how to clone, configure, and run both locally.
     - `cd backend`
     - `uv sync`
     - `uv run -- uvicorn main:app --reload --host 0.0.0.0 --port 8000`
+
+https://github.com/user-attachments/assets/b772bfdc-442c-4e47-8b56-1ecfaa4b2733
