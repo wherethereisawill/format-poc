@@ -19,7 +19,7 @@ type ReportResponse = {
 }
 
 function stripMarkdownBold(text: string): string {
-  return text.replace(/\*\*(.*?)\*\*/g, '$1')
+  return text.replace(/\*\*(.*?)\*\*/g, '$1').replace(/•/g, '')
 }
 
 function App() {
@@ -76,16 +76,28 @@ function App() {
         </Card>
         <Card>
           <CardContent>
-            <h1 className="text-2xl font-bold text-left mb-4">{zingerHeadline}</h1>
-            <h2 className="text-1xl font-bold text-left mb-4">{killerInsight}</h2>
-            <h3 className="text1xl text-left mb-4">{whatWeAsked}</h3>
+            <div className="flex flex-col gap-0 mb-4">
+              <h1 className="text-1xl font-bold text-left">Zinger headline:</h1>
+              <h1 className="text-1xl text-left">{zingerHeadline}</h1>
+            </div>
+            <div className="flex flex-col gap-0 mb-4">
+              <h1 className="text-1xl font-bold text-left">Killer insight:</h1>
+              <h2 className="text-1xl text-left">{killerInsight}</h2>
+            </div>
+            <div className="flex flex-col gap-0 mb-4">
+              <h1 className="text-1xl font-bold text-left">What we asked:</h1>
+              <h3 className="text-1xl text-left">{whatWeAsked}</h3>
+            </div>
+            <div className="flex flex-col gap-0 mb-4">
+              <h1 className="text-1xl font-bold text-left">What stood out:</h1>
             <ul className="list-disc pl-6">
               {whatStoodOut.map((item) => (
-                <li key={item.hook} className="text-sm mb-2 text-left">
-                  <span className="font-bold">{stripMarkdownBold(item.hook)}:</span> {item.explanation} <span className="text-sm font-mono">{item.stat}</span>
-                </li>
-              ))}
-            </ul>
+                <li key={item.hook} className="mb-2 text-left">
+                  <span className="font-bold">{stripMarkdownBold(item.hook)}:</span> {item.explanation} <span className="font-mono">{item.stat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </CardContent>
         </Card>
       </div>
